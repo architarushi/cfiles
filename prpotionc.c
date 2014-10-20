@@ -1,0 +1,77 @@
+#include<stdio.h>
+unsigned long int a[100],b1[100],c[100],t,m,r,g,b,s,ma,i;
+int main()
+{
+    scanf("%lu",&t);
+    while(t--)
+    {
+       scanf("%lu %lu %lu %lu",&r,&g,&b,&m);
+       for(i=0;i<r;i++)
+        {
+            scanf("%lu",&a[i]);
+        }
+       for(i=0;i<g;i++)
+        {
+            scanf("%lu",&b1[i]);
+        }
+       for(i=0;i<b;i++)
+        {
+            scanf("%lu",&c[i]);
+        }
+        while(m--)
+        {
+            s=1;
+            ma=a[0];
+            for(i=0;i<r;i++)
+            {
+            if(a[i]>ma)
+                {ma=a[i];
+                 s=1;}
+            }
+            for(i=0;i<g;i++)
+            {
+            if(b1[i]>ma)
+                {ma=b1[i];s=2;}
+            }
+            for(i=0;i<b;i++)
+            {
+            if(c[i]>ma)
+                {ma=c[i];s=3;}
+            }
+            if(1==s)
+            {
+            for(i=0;i<r;i++)
+                a[i]=a[i]/2;
+            }
+            if(2==s)
+            {
+            for(i=0;i<g;i++)
+                b1[i]=b1[i]/2;
+            }
+            if(3==s)
+            {
+            for(i=0;i<b;i++)
+                c[i]=c[i]/2;
+            }
+        }
+        ma=a[0];
+        for(i=0;i<r;i++)
+        {
+            if(a[i]>ma)
+            ma=a[i];
+        }
+        for(i=0;i<g;i++)
+        {
+            if(b1[i]>ma)
+            ma=b1[i];
+        }
+        for(i=0;i<b;i++)
+        {
+            if(c[i]>ma)
+                ma=c[i];
+        }
+        printf("%lu\n",ma);
+
+    }
+    return 0;
+}

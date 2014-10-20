@@ -1,0 +1,39 @@
+#include<stdio.h>
+int a[10],m,t,i,pos,ans=0;
+int main()
+{
+    scanf("%d",&t);
+    while(t--)
+    {
+        for(i=0;i<10;i++)
+            scanf("%d",&a[i]);
+        m=a[1];pos=1;
+        for(i=1;i<10;i++)
+            if(a[i]<m)
+            {
+                m=a[i];
+                pos=i;
+            }
+        if(a[0]<m)
+        {
+            m=a[0];m++;ans=1;
+            for(i=1;i<10;i++)
+                if(a[i]!=0)
+                break;
+            while(m--)
+            {
+                ans=ans*10;
+            }
+        }
+        else
+        {
+            ans=0;m++;
+            while(m--)
+            {
+              ans=ans*10+pos;
+            }
+        }
+        printf("%d\n",ans);
+    }
+    return 0;
+}
